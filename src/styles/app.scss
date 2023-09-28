@@ -1,0 +1,219 @@
+// RESET
+// Smooths out the rough edges across browsers
+@import "./defaults/normalize";
+
+// VARIABLES
+// Reusable settings
+@import "./_colors";
+@import "./_fonts";
+
+// OTHER DEFAULT STYLES
+// Smooths out the rough edges across browsers
+@import "./defaults/article";
+@import "./defaults/dataviz";
+
+// BULMA
+// External CSS framework
+@import "../../node_modules/bulma/bulma.sass";
+
+// SITE-WIDE STYLES:
+
+$textbox-background: rgba(0, 0, 0, 0.5);
+$max-textbox-width: 600px;
+
+html,
+body {
+  background-color: $city-black;
+  color: $city-white;
+}
+
+// Disable double-tap to zoom on touch devices
+body {
+  touch-action: manipulation;
+}
+
+.headline {
+  font-size: 2.8rem;
+}
+
+.nav {
+  position: absolute;
+  z-index: 10;
+  background-color: transparent;
+  box-shadow: none;
+  svg path,
+  svg polygon {
+    fill: $city-white;
+  }
+  .nav-title {
+    color: $city-white;
+  }
+  .nav-links a {
+    border-color: $city-white;
+    color: $city-white;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: none;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.byline {
+  color: $city-white;
+  opacity: 0.7;
+}
+
+.footer {
+  color: $city-black;
+  background-color: $city-white;
+}
+
+.eyebrow {
+  color: $city-white;
+  font-family: $sans;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+
+  &.is-small {
+    font-size: 0.5rem;
+    letter-spacing: 1.5px;
+    font-weight: 400;
+  }
+
+  a {
+    color: $city-white;
+  }
+}
+
+.app {
+  .copy {
+    font-size: 1.25rem;
+    a {
+      color: $city-white;
+      box-shadow: 0 1px 0 $city-white;
+
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+// SCROLLY CONTAINERS:
+
+.scrolly-container {
+  width: 100%;
+  height: 300vh;
+  position: relative;
+
+  &:first-child {
+    height: 200vh;
+  }
+
+  .scrolly-image {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    img {
+      object-fit: cover;
+      width: 100vw;
+      height: 100vh;
+    }
+  }
+  .scrolly-caption {
+    margin-top: 100vh;
+    position: absolute;
+    z-index: 2;
+    background-color: $textbox-background;
+
+    p {
+      max-width: $max-textbox-width;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .hero.is-fullheight {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    .landing-content {
+      .deck {
+        font-size: 1.5rem;
+      }
+      .eyebrow {
+        text-align: center;
+
+        a:hover {
+          filter: brightness(80%);
+        }
+      }
+      @media screen and (min-width: 768px) {
+        margin-bottom: 13%;
+        .headline,
+        .deck,
+        .byline,
+        .eyebrow {
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  .map-trigger-container {
+    width: 10px;
+    height: 300vh;
+    margin-top: 100vh;
+    position: absolute;
+  }
+
+  &.photo-pulled-left {
+    @media screen and (min-width: 768px) {
+      .scrolly-image {
+        width: 50%;
+        img {
+          width: 50vw;
+        }
+      }
+      .scrolly-caption {
+        width: 47%;
+        right: 1%;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+// MAP CONTAINER:
+
+.map-container {
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+// NEWSLETTER SIGNUP:
+
+.newsletter-container {
+  width: 100%;
+  background-color: $city-black;
+}
+
+// OTHER
+
+.landing-content,
+.scrolly-caption {
+  // Fixes bug where captions didn't appear above images on iOS devices
+  // See: https://stackoverflow.com/questions/18255511/z-index-issue-on-ios-safari-chrome
+  -webkit-transform: translateZ(1px);
+  transform: translateZ(1px);
+}
