@@ -22,6 +22,11 @@ img:not([alt]) {
   outline: 3px solid $city-orange;
 }
 
+a,
+a:visited {
+  color: $city-blue;
+}
+
 a:hover,
 a:active,
 a:focus {
@@ -122,7 +127,6 @@ body {
   @include bookface();
   text-align: center;
   font-size: 20px;
-  line-height: 1.8rem;
   margin: 20px 0 20px;
 }
 
@@ -130,7 +134,6 @@ body {
   @include boldface();
   text-align: center;
   font-size: 17px;
-  line-height: 1.4rem;
   letter-spacing: 0.57px;
   color: #666;
   margin: 8px 0;
@@ -147,7 +150,7 @@ body {
   a:hover,
   a:active,
   a:focus {
-    border-bottom: 1px solid $city-white;
+    border-bottom: 1px solid $city-blue;
   }
 }
 
@@ -184,7 +187,7 @@ body {
     &,
     &:visited {
       color: #000;
-      box-shadow: 0 1px 0 $city-white;
+      box-shadow: 0 1px 0 #0c71fa;
     }
 
     &:hover,
@@ -267,22 +270,22 @@ body {
 .footer {
   margin-top: 77px;
   padding-top: 17px;
-  border-top: 1px solid #bdbdbd;
-}
 
-.footer-logo {
-  text-align: center;
-  margin-bottom: 31px;
-
-  svg {
-    width: 80px;
+  .donation-box-container {
+    background-color: $city-gold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    > div {
+      width: 728px;
+      max-width: 100%;
+    }
   }
 }
 
 .footer-credit {
-  font-family: $sans;
   text-align: center;
-  margin: 1rem 0 2rem 0;
+  margin: 2rem 0;
   text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 2px;
@@ -389,8 +392,12 @@ body {
   text-transform: uppercase;
   font-size: 9px;
   letter-spacing: 3px;
-  line-height: 25px;
+  line-height: 20px;
   margin-bottom: 27px;
+  a {
+    color: $city-black;
+    text-decoration: none;
+  }
 }
 
 @media screen and (min-width: 740px) {
