@@ -10,6 +10,7 @@ import { OutboundLink } from "src/components/OutboundLink";
 import { VideoContainer } from "src/components/Video";
 import classnames from "classnames";
 import { SocialShareButtons } from "src/components/SocialShareButtons";
+import { NewsletterSignup } from "src/components/NewsletterSignup";
 
 type Author = {
   name: string;
@@ -118,6 +119,7 @@ export const Homepage = () => {
             </div>
           </div>
         </div>
+        <NewsletterSignup />
 
         {slides.map((slide, i) => {
           const { slideContent, photoFileName, photoPosition } = slide;
