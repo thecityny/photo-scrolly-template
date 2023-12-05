@@ -133,7 +133,7 @@ export const Homepage = () => {
                 </div>
                 <div className="hero is-fullheight">
                   <div
-                    className="hero-body container"
+                    className="hero-body container is-flex-direction-column"
                     style={{
                       maxWidth: "600px",
                     }}
