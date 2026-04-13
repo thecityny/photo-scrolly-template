@@ -18,14 +18,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Load .env file
         uses: xom9ikk/dotenv@v2
 
       - id: install-node
         name: Install Node.js 22.x
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: "npm"
@@ -70,7 +70,7 @@ jobs:
 
     steps:
       - name: Fetch repository for `lighthouserc.json`
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Download build
         uses: actions/download-artifact@v4
