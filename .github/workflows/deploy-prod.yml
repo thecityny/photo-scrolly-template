@@ -16,21 +16,21 @@ jobs:
     steps:
       - id: checkout
         name: Checkout the repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Load .env file
         uses: xom9ikk/dotenv@v2
 
       - id: install-node
-        name: Install Node.js 16.x
-        uses: actions/setup-node@v3
+        name: Install Node.js 22.x
+        uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 22
           cache: "npm"
 
       - id: install-project-modules
         name: Install project dependencies
-        run: npm ci --production
+        run: npm ci
         shell: bash
 
       - id: validate-metadata
@@ -46,16 +46,16 @@ jobs:
     steps:
       - id: checkout
         name: Checkout the repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Load .env file
         uses: xom9ikk/dotenv@v2
 
       - id: install-node
-        name: Install Node.js 16.x
-        uses: actions/setup-node@v3
+        name: Install Node.js 22.x
+        uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 22
           cache: "npm"
 
       - id: install-project-modules
@@ -92,7 +92,7 @@ jobs:
 
       - id: configure-aws
         name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
